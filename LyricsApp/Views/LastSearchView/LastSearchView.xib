@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LastSearchView" customModule="LyricsApp" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="iN0-l3-epB" id="Eje-o7-pCq"/>
+                <outlet property="songCellView" destination="OSa-bA-Yzp" id="817-c0-i5G"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T7N-y8-Ei1">
+                    <rect key="frame" x="19" y="0.0" width="337.5" height="163"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-bA-Yzp" customClass="SongCellView" customModule="LyricsApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="37" width="337.5" height="118"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your last search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vb-N5-1BM">
+                            <rect key="frame" x="0.0" y="8" width="337.5" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="7vb-N5-1BM" firstAttribute="top" secondItem="T7N-y8-Ei1" secondAttribute="top" constant="8" id="ADj-gQ-rWV"/>
+                        <constraint firstAttribute="bottom" secondItem="OSa-bA-Yzp" secondAttribute="bottom" constant="8" id="Bgq-TG-g1H"/>
+                        <constraint firstAttribute="trailing" secondItem="OSa-bA-Yzp" secondAttribute="trailing" id="Cnq-Ca-NZA"/>
+                        <constraint firstItem="OSa-bA-Yzp" firstAttribute="top" secondItem="7vb-N5-1BM" secondAttribute="bottom" constant="8" id="Og8-lJ-Eot"/>
+                        <constraint firstItem="OSa-bA-Yzp" firstAttribute="leading" secondItem="T7N-y8-Ei1" secondAttribute="leading" id="OuZ-ke-q6w"/>
+                        <constraint firstItem="7vb-N5-1BM" firstAttribute="leading" secondItem="T7N-y8-Ei1" secondAttribute="leading" id="mcq-4W-cHN"/>
+                        <constraint firstAttribute="trailing" secondItem="7vb-N5-1BM" secondAttribute="trailing" id="vpp-7O-CkZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="T7N-y8-Ei1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Vjt-La-qDy"/>
+                <constraint firstItem="T7N-y8-Ei1" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="XxG-P9-NGJ"/>
+                <constraint firstItem="T7N-y8-Ei1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="hZd-pZ-NHv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="T7N-y8-Ei1" secondAttribute="bottom" id="mjX-75-gc8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40000000000001" y="-85.907046476761622"/>
+        </view>
+    </objects>
+</document>
