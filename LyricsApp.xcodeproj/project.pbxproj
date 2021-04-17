@@ -88,12 +88,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		2E07DAC3262B12A300D7A38E /* TableVIewCells */ = {
+		2E07DAC3262B12A300D7A38E /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				2E9894EA2628F08700F13B4A /* HistoryCell */,
 			);
-			path = TableVIewCells;
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		2E07DAC4262B132800D7A38E /* Values */ = {
@@ -159,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				2E07DAC4262B132800D7A38E /* Values */,
-				2E07DAC3262B12A300D7A38E /* TableVIewCells */,
+				2E07DAC3262B12A300D7A38E /* TableViewCells */,
 				2E07DAC2262B122400D7A38E /* Views */,
 				2E9894FB262A1EFD00F13B4A /* Protocols */,
 				2EB944352626FB720042945E /* Models */,
