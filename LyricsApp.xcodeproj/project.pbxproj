@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AEFA4A226C2F514009D0EE6 /* LyricRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEFA4A126C2F514009D0EE6 /* LyricRequest.swift */; };
 		2E07DAC6262B134900D7A38E /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E07DAC5262B134900D7A38E /* Strings.swift */; };
 		2E9894E92628EDA200F13B4A /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9894E82628EDA200F13B4A /* HistoryViewController.swift */; };
 		2E9894EC2628F0B400F13B4A /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9894EB2628F0B400F13B4A /* HistoryTableViewCell.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AEFA4A126C2F514009D0EE6 /* LyricRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricRequest.swift; sourceTree = "<group>"; };
 		2E07DAC5262B134900D7A38E /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		2E9894E82628EDA200F13B4A /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		2E9894EB2628F0B400F13B4A /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AEFA4A026C2F497009D0EE6 /* HttpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				2AEFA4A126C2F514009D0EE6 /* LyricRequest.swift */,
+			);
+			path = HttpRequest;
+			sourceTree = "<group>";
+		};
 		2E07DAC2262B122400D7A38E /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,11 +168,12 @@
 		2EB943FA2625FCEA0042945E /* LyricsApp */ = {
 			isa = PBXGroup;
 			children = (
+				2AEFA4A026C2F497009D0EE6 /* HttpRequest */,
 				2E07DAC4262B132800D7A38E /* Values */,
 				2E07DAC3262B12A300D7A38E /* TableViewCells */,
 				2E07DAC2262B122400D7A38E /* Views */,
 				2E9894FB262A1EFD00F13B4A /* Protocols */,
-				2EB944352626FB720042945E /* Models */,
+				2EB944352626FB720042945E /* Objects */,
 				2EB9441A262618B20042945E /* ViewControllers */,
 				2EB943FB2625FCEA0042945E /* AppDelegate.swift */,
 				2EB943FD2625FCEA0042945E /* SceneDelegate.swift */,
@@ -203,7 +214,7 @@
 			path = InfoView;
 			sourceTree = "<group>";
 		};
-		2EB944352626FB720042945E /* Models */ = {
+		2EB944352626FB720042945E /* Objects */ = {
 			isa = PBXGroup;
 			children = (
 				2EB944362626FBA00042945E /* Lyric.swift */,
@@ -212,7 +223,7 @@
 				2E9894FF262A43E500F13B4A /* DBManager.swift */,
 				2E989503262A665800F13B4A /* Rachability.swift */,
 			);
-			path = Models;
+			path = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +310,7 @@
 				2EB944372626FBA00042945E /* Lyric.swift in Sources */,
 				2E9894FE262A2D7B00F13B4A /* LastSearchProtocol.swift in Sources */,
 				2E9894E92628EDA200F13B4A /* HistoryViewController.swift in Sources */,
+				2AEFA4A226C2F514009D0EE6 /* LyricRequest.swift in Sources */,
 				2E9894FA262A1DD700F13B4A /* LastSearchManager.swift in Sources */,
 				2EB944002625FCEA0042945E /* ViewController.swift in Sources */,
 				2EB944062625FCEA0042945E /* LyricsApp.xcdatamodeld in Sources */,

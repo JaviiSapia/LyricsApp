@@ -17,7 +17,6 @@ class SearchFormView: UIView {
     @IBOutlet weak private var searchButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private var url = URL(string: "https://api.lyrics.ovh/v1/")!
     weak var delegate: SearchFormProtocol?
     
     required public init?(coder: NSCoder) {
@@ -59,41 +58,6 @@ class SearchFormView: UIView {
         view.layer.cornerRadius = 15
         view.clipsToBounds = true
     }
-
-    /**
-        Handles the request of the new lyrics
-        - Parameters
-            - artist: The name of the artist
-            - title: The name of the song
-     */
-    private func doRequest(artist: String, title: String) {
-        
-        // Cofigures the URLSession for handle internet disconection
-        let config = URLSessionConfiguration.default
-        config.waitsForConnectivity = true
-        config.timeoutIntervalForRequest = 30
-        
-        let task = URLSession(configuration: config).dataTask(with: setUrlWithPaths(artist: artist, title: title)) { data, response, error in
-            if let data = data {
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {    
-                        if let lyric = json["lyrics"] {
-                            self.onSearchResponse(lyrics: Lyric.init(artist: artist, title: title, lyrics: lyric as! String), error: nil)
-                        }
-                        if let error = json["error"] {
-                            self.onSearchResponse(lyrics: nil, error: (error as! String))
-                        }
-                    }
-                } catch let error as NSError {
-                    self.onSearchResponse(lyrics: nil, error: error.localizedDescription)
-                }
-            }
-            else {
-                self.onSearchResponse(lyrics: nil, error: error?.localizedDescription ?? "Unknown error")
-            }
-        }
-        task.resume()
-    }
     
     /**
         Checks if the inputs are empty
@@ -104,35 +68,22 @@ class SearchFormView: UIView {
     }
     
     /**
-        Creates a new URL from the input values
-        - Parameters
-            - artist: The name of the artist
-            - title: The name of the song
-        - Returns: A new URLRequest with the custom URL
-    */
-    private func setUrlWithPaths(artist: String, title: String) -> URLRequest {
-        return URLRequest(url: self.url.appendingPathComponent(artist)
-        .appendingPathComponent(title))
-    }
-    
-    /**
         Send the new lyrics to the MainViewController
         - Parameters
             - lyrics: The new lyrics to send
             - error: An error message to be displayed
     */
-    private func onSearchResponse(lyrics: Lyric?, error: String?) {
+    private func fetchLyric() {
         if let delegate = self.delegate {
-            DispatchQueue.main.async {
+            LyricRequest(artist: self.artist.text!, title: self.songTitle.text!).get { lyric in
                 self.showProgress(show: false)
                 self.activityIndicator.isHidden = true
-                if let lyrics = lyrics {
-                    self.addToHistory(lyrics: lyrics)
-                    delegate.onSearchResponse(lyric: lyrics, error: error)
-                }
-                else {
-                    delegate.onSearchResponse(lyric: nil, error: error!)
-                }
+                self.addToHistory(lyrics: lyric)
+                delegate.onSearchResponse(lyric: lyric, error: nil)
+            } onError: { errorMessage in
+                self.showProgress(show: false)
+                self.activityIndicator.isHidden = true
+                delegate.onSearchResponse(lyric: nil, error: errorMessage)
             }
         }
     }
@@ -161,7 +112,7 @@ class SearchFormView: UIView {
         }
         
         showProgress(show: true)
-        doRequest(artist: self.artist.text!, title: self.songTitle.text!)
+        self.fetchLyric()
     }
     
     /**
